@@ -1,0 +1,29 @@
+# This runner is based on https://github.com/se-ubt/se24-assignment7/blob/main/.github/workflows/maven.yml
+#For solving this task I used GitHub Copilot
+
+name: Run Fuzzer
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment: default
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Run fuzzer
+        run: | 
+          java Fuzzer.java "./html_parser_linux_x86_64"
