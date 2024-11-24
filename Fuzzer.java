@@ -84,13 +84,13 @@ public class Fuzzer {
         }
         
 
-        //boolean notZeroExitCode = runCommand(builder, seedInput, getMutatedInputs(seedInput, mutators));
+        boolean notZeroExitCode = runCommand(builder, seedInput, getMutatedInputs(seedInput, mutators));
         //For testing the GitHub Actions
-        List<Function<String, String>> mutators2 = new ArrayList<>(List.of(
-            input -> input
+        // List<Function<String, String>> mutators2 = new ArrayList<>(List.of(
+        //     input -> input
 
-        ));
-        boolean notZeroExitCode = runCommand(builder, seedInput, getMutatedInputs(seedInput, mutators2));
+        // ));
+        // boolean notZeroExitCode = runCommand(builder, seedInput, getMutatedInputs(seedInput, mutators2));
         if (notZeroExitCode) {
             System.err.println("At least one input caused a non-zero exit code.");
             System.exit(1);
